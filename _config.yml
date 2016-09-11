@@ -1,0 +1,60 @@
+safe: false
+source: .
+destination: ./_site
+plugins_dir: ./_plugins
+lsi: true
+highlighter: rouge
+markdown: kramdown
+exclude: ['CNAME', 'Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+
+url: http://web.cs.ucla.edu
+baseurl: /classes/fall16/cs118
+
+# Configuration for site
+title: "CS118: Computer Network Fundamentals - Fall 2016 (UCLA)"
+description: 
+author: Lixia Zhang
+email:
+
+# Configuration for navbar.html
+navbar_list:
+- name: Home
+  link: /
+- name: Syllabus
+  link: /syllabus.html
+- name: Homeworks
+  link: /homeworks.html
+- name: Project 1
+  link: /project-1.html
+- name: Project 2
+  link: /project-2.html
+
+course_info:
+  times: Mondays/Wednesdays 4pm-5:50pm
+  room: BH 2444
+  name: Lixia Zhang
+  contact: lixia at cs.ucla.edu
+  office_hours: TBD
+
+  homeworks_due: Wednesday of the week following the assignment, 11pm
+  midterm: TBD
+  
+  final: Wednesday December 7, 2016, 11:30am-2:30pm
+  final_room: TBD
+
+  sections:
+    - times: Friday / 2:00pm-3:50pm
+      room: ROYCE 164
+      name: Spyros Mastorakis
+      contact: mastorakis at cs.ucla.edu
+      office_hours: TBD
+
+    - times: Friday / 4:00pm-5:50pm
+      room: BH 5436
+      name: Haitao Zhang
+      contact: zhtaoxiang at gmail dot com
+      office_hours: TBD
+    
+  projects:
+    - deadline: TBD
+    - deadline: TBD
