@@ -7,11 +7,13 @@ branches:
     - master
 env:
   global:
-    - secure: "fQb+CXj9IXpg0KsigxrNGutIgLAXPifsHHgMDKWXxXzc07Qdyt00oU3L1HCqCUZHYYwyFC/OZuHSh1M7GDnXfbaT8XJBykYfVy6lIyOCUSJcgaun7CLsOaRALDDUqA8Gz2KyZwb1I2kL4oJTFJDcERYcIlhTfs+eTEN+HKv7bNver3mZv3b5KkCJwC7ItqlcDaQGoRfFILTiDY/rGo37jZp83JNASE6bqEP4h+qZpSqkQMTfbYHJMkQi4fWSTX3zy1Fxa2O7GvysFLa7cEkwlh1mPd6NkCHQ+xIPnay0RRT/Cs9B+rEtB/cUd24SDHyf8DZoMluadUtUKYma7G7A1sVfh5d2G4qfSTcSqZiPETyJjby92sszgfo/XdKAl7sYthd1MvOusBlkbWidSctprCfBKTq73uZPYSUgAcA0+cMYLs+Vr3pphultTtK+5X79aU6iW2qWOpzuejniQIbkMgjLsnSxq7TGxVvJACWQDu2ZGWapOXrXj7bAAqWnN9b5Y9Yk8JOyX5Ezgp2T2ZbFbpVnbFfHufZ6iOsJFICGCbNmg5wNZtFAznXqNpBpcx2WiiMKuvi8VeYVuEze/C1PJDuVrwQNgUuecy1ewVrX5y2Hze43dvxToweoCsZnZZT0BYSfROPGqjbMzQCu+ItNtqcoggya45KxdjI87SkqJ9Y="
+    - secure: "GB3Jo/0PUEiiK8CSm+kTX+zvYscvlWQeQSwiQLX3pmcpNfbjEoBD1VdxgYo8As86UOi9gSZpY6YWBNVXu0/3t1dNub8EkEDt9Q71D3vtyXLUyevDvmCTTroej9c5HvHVjCA/IXORN2mgmhLwr1q89NXOUeHxdV+xd9frm/bjehTZQpoofbDSi2Isna/K4FajmxHWewM3rH+3+OLSqoUPhCLRoJkwGQW2EsGdXkH38ynu6bn/UqqkifyevEkQShEkbacifOpv7AD1erywJrfMwzC8zP3nuTNRnVxDyjo5dPCpikkmZZdbW4oETAQ51M3XEoqEdtrVZdylTo7mK1mjbPXxV/12jPzLjY8UFkOrHvQ/PdClMeU18Ei0BS9LpiW/qd+IaQHiYLcQecA89tzSrQFPQZ3XvswBS6ryrFID9PCHBffIm6PriQ/bMywu1BhEAMp+xkI1ck6Qvo2O3/xeVx+C4vXBGXG8msEyQt9FukDmc4iINZQevBba8BSQu+OQOFNvDd9UmkeB/Es/W+M3hp8m3U8vwK1W7/IC0fo8HympyyKyap00QPvQ8ccTNURLtU671MNtqyuSNs6ZX478xOvIzEolIgjgy0woBRVrjC6qt029q1HcZJ38eyYP2WKLObzpeP1ljtXw8a+WVUVC6KyMATzR3EhRaiGeKD4aJ7c="
 script:
   - gem install bundler
   - bundle exec jekyll build
 after_success:
-  - openssl aes-256-cbc -K $encrypted_618cbf550328_key -iv $encrypted_618cbf550328_iv -in .travis.d/rsa.enc -out .travis.d/rsa -d
+  - openssl aes-256-cbc -K $encrypted_148211906cec_key -iv $encrypted_148211906cec_iv -in .travis.d/rsa.enc -out .travis.d/rsa -d
+  - ls -l ./.travis.d/
   - chmod 600 ./.travis.d/rsa
   - rsync -e "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -i '`pwd`/.travis.d/rsa'" --delete -ar _site/ $TARGET
+
