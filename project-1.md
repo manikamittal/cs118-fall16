@@ -38,32 +38,26 @@ If you client and/or server supports HTTP 1.1, you will get bonus points, see de
 
 You may want to approach the project in three stages: 
 
-1. Implementing **HTTP message abstraction**
+1. Understanding the given **HTTP message abstraction**
 2. Implementing **Web client** module
 3. Implementing **Web server** module.
 
 ### HTTP message abstraction
 
-As the first step, you need to implement several helper classes that can help you to parse and construct an HTTP message, which can be either HTTP request or HTTP response.
-For example, you may want to implement an `HttpRequest` class that can help you to customize the HTTP request header and encode the HTTP request into a string of bytes of the wire format.  Some high-level pseudo code would look like:
-
-    HttpRequest request;
-    request.setUrl(...);
-    request.setMethod(...);
-    vector<uint8_t> wire = request.endcode();
-
-Note that you only needs to implement HTTP `GET` request in this project.
-
-You may also want to implement an `HttpRequest` constructor method that creates an `HttpRequest` object from the wire encoded request.
-
-    HttpRequest request;
-    request.consume(wire);
-
-Similarly, you may also want to implement an `HttpResponse` class that can facilitate processing HTTP responses.
+As the first step in Socket programming, you may need several helper classes that can help you to parse and construct an HTTP message, which can be either HTTP request or HTTP response.
+For example, you will need an `HttpRequest` class that can help you to
+customize the HTTP request header and encode the HTTP request into a string of bytes of the wire format. You may also need it to create an
+`HttpRequest` object from the wire encoded request. Similarly, you
+will need an `HttpResponse` class that can facilitate processing HTTP
+responses. In order to make things simpler, the `HttpRequest` and
+`HttpResponse` classes have been provided to you and are included in the
+project template. It is highly recommended that you read and fully
+understand these classes. You are free to make changes to the given
+classes or write your own helper classes. 
 
 ### Web server
 
-After finishing HTTP abstraction, you can start building your Web server.
+After finishing understanding the HTTP abstraction, you can start building your Web server.
 The eventual output is a binary `web-server`, which must accept three command-line arguments: hostname of the Web site, a port number, and a directory name.
 
     $ web-server [hostname] [port] [file-dir]
